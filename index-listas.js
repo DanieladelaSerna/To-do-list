@@ -1,6 +1,11 @@
 function addItem(){
     const taskValue = document.getElementById("input-task").value;
-    addElement(taskValue);
+    console.log(taskValue);
+    if (taskValue != "") {
+        addElement(taskValue);
+        
+    }
+    
     document.getElementById("input-task").value = "";
 }
 
@@ -29,12 +34,18 @@ div.appendChild(ul);
 const text = document.createTextNode (content);
 ul.appendChild(text);
 const btn = document.createElement("button");
+btn.addEventListener("click", remove)
 
 div.appendChild(btn);
 const btnContent= document.createTextNode("X");
 btn.appendChild(btnContent);
 
 
+
 }
 
+function remove(e) {
+   const deleteBtn = e.target.parentNode.parentNode.parentNode;
+   document.getElementById("lista").removeChild(deleteBtn);
 
+}
